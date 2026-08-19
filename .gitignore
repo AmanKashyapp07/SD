@@ -1,0 +1,7 @@
+# Executables
+parking_lot
+*.o
+*.out
+
+# macOS / System
+.DS_Store
