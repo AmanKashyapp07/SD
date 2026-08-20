@@ -1,6 +1,6 @@
 #include "Vehicle.hpp"
 
-using std::string;
+using namespace std;
 
 Vehicle::Vehicle(const string& plate, VehicleType vehicleType)
     : licensePlate(plate), type(vehicleType) {}

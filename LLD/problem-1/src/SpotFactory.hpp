@@ -10,12 +10,11 @@ using std::string;
 using std::shared_ptr;
 
 /**
- * @brief Factory class to create ParkingSpot instances.
+ * @brief Factory class to encapsulate ParkingSpot instantiation.
  * 
  * WHY THIS PATTERN EXISTS (FACTORY PATTERN):
- * Encapsulates object instantiation logic. If spot initialization rules change
- * (e.g. adding charging capabilities or extra attributes for specific spots),
- * only this factory class needs to be modified, keeping caller classes decoupled.
+ * Decouples spot creation from the parking levels. If new spot types (e.g. Electric charging spots)
+ * or special initialization parameters are introduced, only this factory changes.
  */
 class SpotFactory {
 public:

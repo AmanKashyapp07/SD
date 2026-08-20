@@ -5,21 +5,20 @@
 
 using std::string;
 
-// Enum defining supported vehicle types in the system
+// Enum defining supported vehicle types
 enum class VehicleType {
     MOTORCYCLE,
     CAR,
     TRUCK
 };
 
-// Enum defining parking spot types corresponding to vehicle sizes
+// Enum defining spot sizes corresponding to vehicle types
 enum class SpotType {
     SMALL,   // For Motorcycles
     MEDIUM,  // For Cars
     LARGE    // For Trucks
 };
 
-// Helper utilities to convert Enums to readable string representation for console output
 inline string vehicleTypeToString(VehicleType type) {
     switch (type) {
         case VehicleType::MOTORCYCLE: return "Motorcycle";

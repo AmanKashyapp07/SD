@@ -4,16 +4,17 @@
 #include <string>
 #include <chrono>
 #include "Enums.hpp"
+#include "Vehicle.hpp"
 
 using std::string;
 using TimePoint = std::chrono::system_clock::time_point;
 
 /**
- * @brief Represents a Parking Ticket issued upon entry.
+ * @brief Represents an immutable parking session ticket.
  * 
  * WHY THIS CLASS EXISTS:
- * Serves as an immutable record of a vehicle's parking session.
- * Tracks entry timestamp and assigned spot so the system can verify tickets and calculate fees accurately.
+ * Serves as the source of truth for an active parking session,
+ * binding entry timestamp, vehicle details, and assigned spot ID together.
  */
 class Ticket {
 private:

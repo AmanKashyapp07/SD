@@ -10,18 +10,17 @@ using std::string;
 using std::shared_ptr;
 
 /**
- * @brief Represents an individual parking slot within the lot.
+ * @brief Represents an individual parking slot on a level.
  * 
  * WHY THIS CLASS EXISTS:
- * Manages the state and availability of a specific parking slot.
- * Encapsulates parking and unparking operations to maintain consistency.
+ * Encapsulates the occupancy state, spot size, and parking/unparking behavior.
  */
 class ParkingSpot {
 private:
     string spotId;
     int floorNumber;
     SpotType spotType;
-    bool occupied;
+    bool isOccupied;
     shared_ptr<Vehicle> parkedVehicle;
 
 public:
@@ -30,10 +29,10 @@ public:
     string getSpotId() const;
     int getFloorNumber() const;
     SpotType getSpotType() const;
-    bool isOccupied() const;
+    bool getIsOccupied() const;
     shared_ptr<Vehicle> getParkedVehicle() const;
 
-    bool isCompatibleWith(VehicleType vehicleType) const;
+    bool canFitVehicle(VehicleType vehicleType) const;
     bool park(shared_ptr<Vehicle> vehicle);
     void unpark();
 };

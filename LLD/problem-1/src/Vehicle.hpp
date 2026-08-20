@@ -7,11 +7,10 @@
 using std::string;
 
 /**
- * @brief Represents a Vehicle entering the parking lot.
+ * @brief Represents a physical vehicle entering the parking lot.
  * 
  * WHY THIS CLASS EXISTS:
- * Encapsulates domain properties of a vehicle (license plate & vehicle type).
- * By keeping vehicle data immutable after creation, we prevent accidental state mutations.
+ * Immutable domain entity encapsulating the license plate and vehicle type.
  */
 class Vehicle {
 private:
@@ -20,7 +19,7 @@ private:
 
 public:
     Vehicle(const string& plate, VehicleType vehicleType);
-    
+
     string getLicensePlate() const;
     VehicleType getType() const;
 };

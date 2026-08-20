@@ -8,24 +8,29 @@ This document stores the exact prompt templates and architectural structures use
 
 ```
 sys-design/
-├── blocks/             # Foundational System Design Building Blocks (11-section format)
-├── companies-design/   # Company High-Level System Designs (8-section format)
-├── lecture-1/          # Low-Level Design / Machine Coding Modules (4-part structure in C++)
-├── lecture-2/          # Future LLD problems...
-└── prompts.md          # Context & generation prompt templates
+├── HLD/                          # High-Level Design
+│   ├── blocks/                   # Foundational System Design Building Blocks (11-section format)
+│   ├── companies-design/         # Company High-Level System Designs (8-section format)
+│   ├── plan.md                   # Building blocks study roadmap
+│   └── plan_2.md                 # Company designs study roadmap
+├── LLD/                          # Low-Level Design / Machine Coding
+│   ├── lecture-1/                # Parking Lot System in C++ (4-part structure)
+│   └── lecture-2/                # Future LLD problems...
+├── prompts.md                    # Context & generation prompt templates
+└── README.md                     # Repository index & navigation guide
 ```
 
 ---
 
-## Type 1: System Design Building Block (`blocks/`)
+## Type 1: System Design Building Block (`HLD/blocks/`)
 
-**Target Directory:** `blocks/`  
+**Target Directory:** `HLD/blocks/`  
 **Target Filename:** `{{building-block-slug}}.md` (e.g., `consistent-hashing.md`, `rate-limiter.md`, `caching-strategies.md`)
 
 ### Copy-Paste Prompt Template:
 
 ```markdown
-Create a markdown file named {{building-block-slug}}.md in the `blocks/` directory that teaches "{{BUILDING_BLOCK}}" as a system design concept for someone learning it for the first time while preparing for placement interviews at top tech companies (Google, Amazon, Meta, Microsoft, Uber, etc.).
+Create a markdown file named {{building-block-slug}}.md in the `HLD/blocks/` directory that teaches "{{BUILDING_BLOCK}}" as a system design concept for someone learning it for the first time while preparing for placement interviews at top tech companies (Google, Amazon, Meta, Microsoft, Uber, etc.).
 
 This is a LEARNING document, not a quick-revision cheatsheet — prioritize genuine understanding over brevity. Explain things the way a good teacher would: build intuition first, then formalize it.
 
@@ -51,15 +56,15 @@ Structure the file with these 11 sections in exact order:
 
 ---
 
-## Type 2: Company High-Level Design (`companies-design/`)
+## Type 2: Company High-Level Design (`HLD/companies-design/`)
 
-**Target Directory:** `companies-design/`  
+**Target Directory:** `HLD/companies-design/`  
 **Target Filename:** `{{company-slug}}.md` (e.g., `uber.md`, `instagram.md`, `youtube.md`, `twitter.md`)
 
 ### Copy-Paste Prompt Template:
 
 ```markdown
-Create a markdown file named {{company-slug}}.md in the `companies-design/` directory covering the high-level system design of {{COMPANY_OR_SYSTEM}}, structured for placement interview revision.
+Create a markdown file named {{company-slug}}.md in the `HLD/companies-design/` directory covering the high-level system design of {{COMPANY_OR_SYSTEM}}, structured for placement interview revision.
 
 Strict formatting constraints:
 - Do NOT use any emojis anywhere in the document.
@@ -80,15 +85,15 @@ Structure the file with these 8 sections in exact order:
 
 ---
 
-## Type 3: Low-Level Design / Machine Coding Lecture (`lecture-N/`)
+## Type 3: Low-Level Design / Machine Coding Lecture (`LLD/lecture-N/`)
 
-**Target Directory:** `lecture-{{N}}/` (e.g., `lecture-2/`)  
-**Running Problem:** e.g., "Design an Elevator System", "Design a Snake and Ladder Game", "Design an Splitwise Expense Sharing App", "Design a BookMyShow Ticket Booking System"
+**Target Directory:** `LLD/lecture-{{N}}/` (e.g., `LLD/lecture-2/`)  
+**Running Problem:** e.g., "Design an Elevator System", "Design a Snake and Ladder Game", "Design a Splitwise Expense Sharing App", "Design a BookMyShow Ticket Booking System"
 
 ### Copy-Paste Prompt Template:
 
 ```markdown
-Create a complete, self-contained educational module in a folder called `lecture-{{N}}` for teaching a Machine Coding / Low-Level Design (LLD) placement interview round, using the problem: "{{PROBLEM_NAME}}".
+Create a complete, self-contained educational module in a folder called `LLD/lecture-{{N}}` for teaching a Machine Coding / Low-Level Design (LLD) placement interview round, using the problem: "{{PROBLEM_NAME}}".
 
 Use C++ (C++17) as the programming language.
 
@@ -97,7 +102,7 @@ Strict formatting constraints:
 - Keep C++ code clean, modular, and readable by avoiding repetitive `std::` prefixes in `.cpp` files (`using namespace std;` / targeted using directives).
 - Separate header blueprints (`.hpp`) from implementation logic (`.cpp`).
 
-Create the following files inside `lecture-{{N}}/`:
+Create the following files inside `LLD/lecture-{{N}}/`:
 
 1. `problem.md` (STRICTLY under 700 words):
    - What this round is (60-90 min time limit, working compilable code required).

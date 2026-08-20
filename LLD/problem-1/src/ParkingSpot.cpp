@@ -1,10 +1,9 @@
 #include "ParkingSpot.hpp"
 
-using std::string;
-using std::shared_ptr;
+using namespace std;
 
 ParkingSpot::ParkingSpot(const string& id, int floor, SpotType type)
-    : spotId(id), floorNumber(floor), spotType(type), occupied(false), parkedVehicle(nullptr) {}
+    : spotId(id), floorNumber(floor), spotType(type), isOccupied(false), parkedVehicle(nullptr) {}
 
 string ParkingSpot::getSpotId() const {
     return spotId;
@@ -18,15 +17,15 @@ SpotType ParkingSpot::getSpotType() const {
     return spotType;
 }
 
-bool ParkingSpot::isOccupied() const {
-    return occupied;
+bool ParkingSpot::getIsOccupied() const {
+    return isOccupied;
 }
 
 shared_ptr<Vehicle> ParkingSpot::getParkedVehicle() const {
     return parkedVehicle;
 }
 
-bool ParkingSpot::isCompatibleWith(VehicleType vehicleType) const {
+bool ParkingSpot::canFitVehicle(VehicleType vehicleType) const {
     switch (vehicleType) {
         case VehicleType::MOTORCYCLE: return spotType == SpotType::SMALL;
         case VehicleType::CAR:        return spotType == SpotType::MEDIUM;
@@ -36,15 +35,15 @@ bool ParkingSpot::isCompatibleWith(VehicleType vehicleType) const {
 }
 
 bool ParkingSpot::park(shared_ptr<Vehicle> vehicle) {
-    if (occupied || !isCompatibleWith(vehicle->getType())) {
+    if (isOccupied || !canFitVehicle(vehicle->getType())) {
         return false;
     }
     parkedVehicle = vehicle;
-    occupied = true;
+    isOccupied = true;
     return true;
 }
 
 void ParkingSpot::unpark() {
     parkedVehicle = nullptr;
-    occupied = false;
+    isOccupied = false;
 }
